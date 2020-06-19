@@ -1,12 +1,56 @@
 import React from 'react'
+// import { buyCake } from '../redux/cake/cakeAction';
+import { connect } from 'react-redux'
+import { buyCake } from '../redux'
 
-function CakeContainer() {
+function CakeContainer(props) {
+    console.log(props);
+    const { numOfCakes, dispatch } = props;
+    const mapDispatchToProps = () => {
+        // return {
+        //     buyCake: () => dispatch(buyCake())
+        // }
+        dispatch(buyCake())
+    };
     return (
         <div>
-             <h2>Number of cakes</h2>
-             <button>Buy Cake</button>
+             <h2>Number of cakes - {numOfCakes}</h2>
+             <button onClick={mapDispatchToProps}>Buy Cake</button>
         </div>
     )
 }
 
-export default CakeContainer
+// class CakeContainer extends React.Component {
+//     handleButton = () => {
+//     //    this.props.dispatch(buyCake())
+//         this.props.dispatch({type: 'BUY_CAKE'})
+//     }
+
+//     render() {
+//         console.log(this.props);
+//         const { numOfCakes, dispatch } = this.props;
+//         return (
+//             <div>
+//                  <h2>Number of cakes - {numOfCakes}</h2>
+//                  <button onClick={this.handleButton}>Buy Cake</button>
+//             </div>
+//         )
+//     }
+// }
+
+// const mapStateToProps = state => {
+//     return {
+//         numOfCakes: state.numOfCakes
+//     }
+// }; su dung cach2 o line 48
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         buyCake: () => dispatch(buyCake())
+//     }
+// };
+
+export default connect(function (state) {
+    return { numOfCakes: state.numOfCakes }
+})(CakeContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)

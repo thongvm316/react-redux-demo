@@ -7,9 +7,9 @@ import CakeContainer from './components/CakeContainer'
 function App() {
   return (
     <Provider store={store}>
-    <div className="App">
-       <CakeContainer/>
-    </div>
+      <div className="App">
+        <CakeContainer/>
+      </div>
     </Provider>
   );
 }
