@@ -51,6 +51,6 @@ function CakeContainer(props) {
 // };
 
 export default connect(function (state) {
-    return { numOfCakes: state.numOfCakes }
+    return { numOfCakes: state.cake.numOfCakes } // Khi su dung combineReducer phai su dung them state.cake.numOfCakes, normal is state.numOfCakes
 })(CakeContainer)
 // export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)
