@@ -1,5 +1,4 @@
 import React from 'react'
-// import { buyCake } from '../redux/cake/cakeAction';
 import { connect } from 'react-redux'
 import { buyIceCream } from '../redux'
 
@@ -20,4 +19,3 @@ function IceCreamContainer(props) {
 export default connect(function (state) {
     return { numOfIceCreams: state.iceCream.numOfIceCreams }
 })(IceCreamContainer)
-// export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)
